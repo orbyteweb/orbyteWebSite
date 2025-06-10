@@ -3,157 +3,303 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orbyte - Création de sites web</title>
+  <title>Orbyte - Création de sites web professionnels</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #22223b;
+      --accent: #4ea8de;
+      --bg: #f7f9fb;
+      --white: #fff;
+      --shadow: 0 8px 32px rgba(34,34,59,0.10);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f5f7fa;
-      color: #222;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+      min-height: 100vh;
     }
     header {
+      background: linear-gradient(90deg, #22223b 60%, #4ea8de 100%);
+      color: var(--white);
+      padding: 0;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 24px 48px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hero-content {
+      flex: 1 1 350px;
+      min-width: 300px;
+    }
+    .hero-logo {
+      width: 90px;
+      margin-bottom: 18px;
+      filter: drop-shadow(0 2px 8px #0002);
+    }
+    .hero-title {
+      font-size: 2.7em;
+      font-weight: 600;
+      margin: 0 0 18px 0;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+    .hero-desc {
+      font-size: 1.25em;
+      margin-bottom: 32px;
+      color: #e0e6ed;
+      max-width: 500px;
+    }
+    .hero-cta {
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      padding: 16px 38px;
+      border-radius: 8px;
+      font-size: 1.15em;
+      font-weight: 600;
+      box-shadow: 0 2px 12px #4ea8de33;
+      transition: background 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .hero-cta:hover {
       background: #22223b;
-      color: #fff;
-      padding: 40px 0 30px 0;
-      text-align: center;
+      box-shadow: 0 4px 24px #22223b22;
     }
-    .logo {
-      width: 70px;
-      margin-bottom: 10px;
+    .hero-img {
+      flex: 1 1 320px;
+      min-width: 260px;
+      text-align: right;
+      padding-left: 32px;
     }
-    h1 {
-      margin: 0;
-      font-size: 2.5em;
-      letter-spacing: 2px;
+    .hero-img img {
+      max-width: 320px;
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px #22223b22;
+      opacity: 0.95;
     }
     nav {
-      margin-top: 18px;
+      position: absolute;
+      right: 32px;
+      top: 32px;
     }
     nav a {
-      color: #fff;
+      color: #e0e6ed;
       text-decoration: none;
       margin: 0 18px;
       font-size: 1.1em;
+      font-weight: 500;
       transition: color 0.2s;
     }
     nav a:hover {
-      color: #4ea8de;
+      color: var(--accent);
     }
     main {
-      max-width: 800px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(34,34,59,0.07);
-      padding: 40px 32px;
-    }
-    h2 {
-      color: #22223b;
-      margin-top: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 0 24px;
     }
     .services {
       display: flex;
       flex-wrap: wrap;
-      gap: 24px;
-      margin: 32px 0;
+      gap: 32px;
+      margin: 0 0 64px 0;
+      justify-content: center;
     }
     .service {
-      flex: 1 1 220px;
-      background: #f1f3f8;
-      border-radius: 8px;
-      padding: 24px;
-      box-sizing: border-box;
-      min-width: 200px;
+      flex: 1 1 240px;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      min-width: 220px;
       text-align: center;
-      transition: box-shadow 0.2s;
+      transition: transform 0.18s, box-shadow 0.18s;
+      border-bottom: 3px solid var(--accent);
     }
     .service:hover {
-      box-shadow: 0 2px 12px rgba(34,34,59,0.08);
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 12px 32px #4ea8de22;
     }
     .service-icon {
-      font-size: 2.2em;
-      margin-bottom: 12px;
-      color: #4ea8de;
+      font-size: 2.7em;
+      margin-bottom: 16px;
+      color: var(--accent);
     }
-    .cta {
-      display: block;
-      width: fit-content;
-      margin: 36px auto 0 auto;
-      background: #4ea8de;
-      color: #fff;
+    .service h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.25em;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .service p {
+      color: #444;
+      font-size: 1.08em;
+      margin: 0;
+    }
+    .about {
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 40px 32px;
+      margin-bottom: 64px;
+      text-align: center;
+    }
+    .about h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 2em;
+      font-weight: 600;
+    }
+    .about p {
+      font-size: 1.15em;
+      color: #444;
+      max-width: 700px;
+      margin: 18px auto 0 auto;
+    }
+    .contact-section {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .contact-section h2 {
+      color: var(--primary);
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .contact-section a {
+      background: var(--accent);
+      color: var(--white);
       text-decoration: none;
       padding: 14px 32px;
       border-radius: 6px;
       font-size: 1.1em;
       font-weight: 500;
       transition: background 0.2s;
+      display: inline-block;
+      margin-top: 12px;
     }
-    .cta:hover {
+    .contact-section a:hover {
       background: #22223b;
     }
     footer {
       text-align: center;
       color: #888;
-      font-size: 0.95em;
-      margin: 40px 0 16px 0;
+      font-size: 1em;
+      margin: 48px 0 16px 0;
+    }
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 48px 12px 32px 12px;
+      }
+      .hero-img {
+        padding-left: 0;
+        margin-top: 32px;
+        text-align: center;
+      }
+      nav {
+        position: static;
+        margin-top: 18px;
+      }
     }
     @media (max-width: 700px) {
       main {
-        padding: 24px 8px;
+        padding: 24px 4px 0 4px;
+      }
+      .about, .service {
+        padding: 24px 10px;
       }
       .services {
         flex-direction: column;
-        gap: 16px;
+        gap: 18px;
+      }
+      .hero-title {
+        font-size: 2em;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- Remplacez 'logo.png' par le chemin de votre logo si besoin -->
-    <img src="logo.png" alt="Logo Orbyte" class="logo" onerror="this.style.display='none'">
-    <h1>Orbyte</h1>
     <nav>
       <a href="#services">Services</a>
-      <a href="#apropos">À propos</a>
+      <a href="#about">À propos</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div class="hero">
+      <div class="hero-content">
+        <img src="logo.png" alt="Logo Orbyte" class="hero-logo" onerror="this.style.display='none'">
+        <h1 class="hero-title">Orbyte<br>Créateur de sites web professionnels</h1>
+        <p class="hero-desc">
+          Nous aidons les entreprises et les particuliers à se démarquer grâce à des sites web modernes, performants et sur-mesure.<br>
+          Votre image mérite le meilleur du digital.
+        </p>
+        <a href="#contact" class="hero-cta">Demander un devis</a>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Création de site web">
+      </div>
+    </div>
   </header>
   <main>
-    <section id="apropos">
-      <h2>Votre partenaire digital</h2>
-      <p>
-        Orbyte accompagne entreprises et particuliers dans la création de sites web modernes, performants et adaptés à vos besoins. 
-        Notre équipe met son expertise à votre service pour donner vie à vos projets numériques, du site vitrine à la boutique en ligne.
-      </p>
-    </section>
     <section id="services">
-      <h2>Nos services</h2>
+      <h2 style="text-align:center;font-size:2em;font-weight:600;margin-bottom:36px;color:#22223b;">Nos services</h2>
       <div class="services">
         <div class="service">
-          <div class="service-icon">💻</div>
+          <div class="service-icon">💼</div>
           <h3>Sites vitrines</h3>
-          <p>Présentez votre activité avec un site élégant, responsive et facile à gérer.</p>
+          <p>Valorisez votre activité avec un site élégant, rapide et facile à administrer.</p>
         </div>
         <div class="service">
           <div class="service-icon">🛒</div>
           <h3>Boutiques en ligne</h3>
-          <p>Développez votre commerce grâce à une solution e-commerce sur-mesure.</p>
+          <p>Développez vos ventes grâce à une solution e-commerce sur-mesure et sécurisée.</p>
         </div>
         <div class="service">
           <div class="service-icon">⚙️</div>
-          <h3>Développement sur-mesure</h3>
-          <p>Des fonctionnalités personnalisées pour répondre à tous vos besoins spécifiques.</p>
+          <h3>Développement personnalisé</h3>
+          <p>Des fonctionnalités uniques pour répondre à tous vos besoins spécifiques.</p>
         </div>
         <div class="service">
           <div class="service-icon">📱</div>
-          <h3>Sites mobiles</h3>
-          <p>Optimisation mobile pour une expérience utilisateur parfaite sur tous les appareils.</p>
+          <h3>Sites mobiles & responsives</h3>
+          <p>Une expérience utilisateur optimale sur tous les appareils.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">🔒</div>
+          <h3>Maintenance & sécurité</h3>
+          <p>Votre site reste à jour, rapide et protégé en toutes circonstances.</p>
         </div>
       </div>
     </section>
-    <a href="mailto:contact@orbyte.com" class="cta" id="contact">Contactez-nous</a>
+    <section class="about" id="about">
+      <h2>À propos d'Orbyte</h2>
+      <p>
+        Orbyte est une agence web passionnée par la création de solutions digitales sur-mesure. 
+        Nous croyons qu’un site internet doit être à la fois beau, performant et pensé pour vos objectifs. 
+        Notre équipe accompagne chaque client, entreprise ou particulier, de la conception à la mise en ligne, avec écoute et expertise.
+      </p>
+    </section>
+    <section class="contact-section" id="contact">
+      <h2>Contactez-nous</h2>
+      <p>Discutons ensemble de votre projet !</p>
+      <a href="mailto:contact@orbyte.com">contact@orbyte.com</a>
+    </section>
   </main>
   <footer>
     &copy; 2025 Orbyte. Tous droits réservés.
