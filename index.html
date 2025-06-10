@@ -18,6 +18,15 @@
     }
     html {
       scroll-behavior: smooth;
+      box-sizing: border-box;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+    img, video {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
     body {
       margin: 0;
@@ -359,33 +368,18 @@
   }
 }
 @media (max-width: 600px) {
-  .hero-title {
-    font-size: 1.4em;
+  body {
+    padding: 0;
   }
-  .hero-content {
-    min-width: 0;
-  }
-  .hero-img img {
-    max-width: 90vw;
-    border-radius: 10px;
+  .offers, .services {
+    gap: 10px;
   }
   .offer-card, .service {
-    padding: 18px 6px;
-    font-size: 0.98em;
+    padding: 12px 2vw;
+    font-size: 0.97em;
   }
-  .offers-title, h2, .about h2, .contact-section h2 {
-    font-size: 1.2em !important;
-  }
-  nav a {
-    display: inline-block;
-    margin: 0 8px;
-    font-size: 1em;
-  }
-  .about, .options-section, .inclus-section {
-    padding: 16px 2vw;
-  }
-  main {
-    padding: 12px 2vw 0 2vw;
+  .options-section, .inclus-section, .about {
+    padding: 10px 2vw;
   }
 }
   </style>
