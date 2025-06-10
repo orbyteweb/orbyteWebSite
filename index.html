@@ -318,6 +318,42 @@
       font-size: 1em;
       margin: 48px 0 16px 0;
     }
+    /* PLANETE ANIMEE EN FOND */
+    .planet-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .planet-orbite {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 420px;
+      height: 420px;
+      z-index: 0;
+      animation: rotatePlanet 18s linear infinite;
+      filter: drop-shadow(0 0 80px #4ea8de88);
+    }
+    @media (max-width: 700px) {
+      .planet-orbite {
+        width: 220px;
+        height: 220px;
+      }
+    }
+    @keyframes rotatePlanet {
+      0% { transform: translate(-50%, -50%) rotate(0deg);}
+      100% { transform: translate(-50%, -50%) rotate(360deg);}
+    }
+    /* Pour que le contenu soit au-dessus */
+    body > *:not(.planet-bg) {
+      position: relative;
+      z-index: 1;
+    }
     @media (max-width: 1100px) {
   .hero, main {
     max-width: 98vw;
@@ -391,6 +427,26 @@
   </style>
 </head>
 <body>
+  <div class="planet-bg">
+    <svg class="planet-orbite" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="planetGradient" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#4ea8de"/>
+          <stop offset="80%" stop-color="#22223b"/>
+          <stop offset="100%" stop-color="#11111a"/>
+        </radialGradient>
+        <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#fff" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <circle cx="210" cy="210" r="120" fill="url(#planetGradient)" />
+      <ellipse cx="210" cy="230" rx="110" ry="22" fill="#fff" fill-opacity="0.08"/>
+      <ellipse cx="210" cy="230" rx="110" ry="22" fill="#4ea8de" fill-opacity="0.12"/>
+      <ellipse cx="210" cy="210" rx="120" ry="120" fill="url(#shine)" />
+      <ellipse cx="210" cy="210" rx="120" ry="120" fill="none" stroke="#4ea8de" stroke-width="2" stroke-dasharray="8 12" opacity="0.18"/>
+    </svg>
+  </div>
   <header>
     <nav>
       <a href="#services">Services</a>
