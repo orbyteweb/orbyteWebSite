@@ -439,6 +439,21 @@
     padding: 10px 2vw;
   }
 }
+/* Agrandit la carte dans le modal, sans changer son design */
+#offer-modal-content.offer-card {
+  transform: scale(1.18);
+  box-shadow: 0 16px 60px #22223b55, 0 0 0 6px #4ea8de22;
+  z-index: 1001;
+  transition: transform 0.25s cubic-bezier(.4,2,.3,1), box-shadow 0.25s;
+}
+@media (max-width: 700px) {
+  #offer-modal-content.offer-card {
+    transform: scale(1.03);
+    max-width: 98vw;
+    min-width: 0;
+    padding: 18px 4vw;
+  }
+}
   </style>
 </head>
 <body>
