@@ -590,6 +590,9 @@
   <footer>
     &copy; 2025 Orbyte. Tous droits réservés.
   </footer>
+  <div id="offer-modal-bg" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100vw;height:100vh;background:rgba(34,34,59,0.75);align-items:center;justify-content:center;">
+    <div id="offer-modal-content" style="background:#fff;border-radius:18px;box-shadow:0 8px 40px #22223b55;max-width:95vw;max-height:90vh;overflow:auto;padding:36px 28px;min-width:260px;min-height:180px;transform:scale(1.08);"></div>
+  </div>
   <script>
   // Création d'un canvas pour l'effet "0 et 1 qui défilent"
   const canvas = document.createElement('canvas');
@@ -637,6 +640,28 @@
     }
   }
   setInterval(drawMatrix, 60);
+
+  // Sélectionne toutes les offres
+  document.querySelectorAll('.offer-card').forEach(card => {
+    card.style.cursor = "pointer";
+    card.addEventListener('click', function(e) {
+      e.stopPropagation();
+      // Clone le contenu de la carte
+      const modal = document.getElementById('offer-modal-content');
+      modal.innerHTML = card.innerHTML;
+      document.getElementById('offer-modal-bg').style.display = 'flex';
+      // Ajoute la couleur de fond selon l'offre
+      modal.className = card.className;
+    });
+  });
+  // Ferme le modal si on clique dans le vide
+  document.getElementById('offer-modal-bg').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+      document.getElementById('offer-modal-content').innerHTML = '';
+      document.getElementById('offer-modal-content').className = '';
+    }
+  });
 </script>
 </body>
 </html>
