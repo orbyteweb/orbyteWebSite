@@ -35,6 +35,34 @@
       background: var(--bg);
       color: var(--primary);
       min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      top: -120px;
+      left: -120px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle at 30% 30%, #4ea8de55 0%, #eaf4fb00 80%);
+      filter: blur(40px);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      bottom: -120px;
+      right: -120px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle at 70% 70%, #a259e655 0%, #eaf4fb00 80%);
+      filter: blur(50px);
+      opacity: 0.6;
+      pointer-events: none;
     }
     header {
       background: linear-gradient(90deg, #22223b 60%, #4ea8de 100%);
@@ -516,7 +544,7 @@
     <section class="contact-section" id="contact">
       <h2>Contactez-nous</h2>
       <p>Discutons ensemble de votre projet !</p>
-      <a href="mailto:contact@orbyte.com">contact@orbyte.com</a>
+      <a href="mailto:contact@orbyte.com">orbyteweb@gmail.com</a>
     </section>
   </main>
   <footer>
