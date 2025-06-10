@@ -12,6 +12,9 @@
       --bg: #f7f9fb;
       --white: #fff;
       --shadow: 0 8px 32px rgba(34,34,59,0.10);
+      --essentiel: #3ecf8e;
+      --pro: #3e7bfc;
+      --premium: #a259e6;
     }
     html {
       scroll-behavior: smooth;
@@ -150,6 +153,120 @@
       font-size: 1.08em;
       margin: 0;
     }
+    /* OFFRES */
+    .offers-section {
+      margin: 0 auto 64px auto;
+      max-width: 1100px;
+      padding: 0 0 0 0;
+    }
+    .offers-title {
+      text-align: center;
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: 36px;
+      color: #22223b;
+    }
+    .offers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+    }
+    .offer-card {
+      flex: 1 1 300px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 32px 28px 28px 28px;
+      min-width: 260px;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-top: 6px solid var(--accent);
+      position: relative;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .offer-card.essentiel { border-top-color: var(--essentiel);}
+    .offer-card.pro { border-top-color: var(--pro);}
+    .offer-card.premium { border-top-color: var(--premium);}
+    .offer-badge {
+      font-size: 1.1em;
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 4px 14px;
+      margin-bottom: 18px;
+      color: #fff;
+      letter-spacing: 1px;
+      position: absolute;
+      top: -22px;
+      left: 24px;
+      box-shadow: 0 2px 8px #0001;
+    }
+    .offer-card.essentiel .offer-badge { background: var(--essentiel);}
+    .offer-card.pro .offer-badge { background: var(--pro);}
+    .offer-card.premium .offer-badge { background: var(--premium);}
+    .offer-price {
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 12px;
+      margin-top: 8px;
+    }
+    .offer-list {
+      padding-left: 18px;
+      margin-bottom: 18px;
+      color: #444;
+      font-size: 1.08em;
+    }
+    .offer-desc {
+      font-size: 0.98em;
+      color: #666;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+    .offer-card strong {
+      color: var(--primary);
+    }
+    .options-section {
+      max-width: 700px;
+      margin: 0 auto 48px auto;
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 32px 24px;
+    }
+    .options-section h3 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+    .options-list {
+      margin: 0 0 0 18px;
+      color: #444;
+      font-size: 1.05em;
+      padding-left: 0;
+    }
+    .inclus-section {
+      max-width: 700px;
+      margin: 0 auto 48px auto;
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 32px 24px;
+    }
+    .inclus-section h3 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+    .inclus-list {
+      margin: 0 0 0 18px;
+      color: #444;
+      font-size: 1.05em;
+      padding-left: 0;
+    }
     .about {
       background: var(--white);
       border-radius: 14px;
@@ -216,12 +333,13 @@
         position: static;
         margin-top: 18px;
       }
+      .offers { flex-direction: column; gap: 24px; }
     }
     @media (max-width: 700px) {
       main {
         padding: 24px 4px 0 4px;
       }
-      .about, .service {
+      .about, .service, .options-section, .inclus-section {
         padding: 24px 10px;
       }
       .services {
@@ -231,6 +349,7 @@
       .hero-title {
         font-size: 2em;
       }
+      .offer-card { min-width: 0; }
     }
   </style>
 </head>
@@ -238,6 +357,7 @@
   <header>
     <nav>
       <a href="#services">Services</a>
+      <a href="#offres">Offres</a>
       <a href="#about">À propos</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -287,6 +407,73 @@
         </div>
       </div>
     </section>
+
+    <section class="offers-section" id="offres">
+      <div class="offers-title">💼 Nos Offres</div>
+      <div class="offers">
+        <div class="offer-card essentiel">
+          <div class="offer-badge">🟢 ESSENTIELLE</div>
+          <div class="offer-price">249&nbsp;€</div>
+          <ul class="offer-list">
+            <li>1 page vitrine (présentation + contact)</li>
+            <li>Design responsive (ordinateur, tablette, mobile)</li>
+            <li>Formulaire de contact par mail</li>
+            <li>Livraison en 3 à 5 jours</li>
+            <li>Hébergement et nom de domaine conseillés</li>
+          </ul>
+          <div class="offer-desc">🔹 Parfait pour un CV, artiste, coach ou artisan qui veut juste “être visible”.</div>
+        </div>
+        <div class="offer-card pro">
+          <div class="offer-badge">🔵 PROFESSIONNELLE</div>
+          <div class="offer-price">490&nbsp;€</div>
+          <ul class="offer-list">
+            <li>Jusqu’à 5 pages (accueil, services, à propos, contact, etc.)</li>
+            <li>Design sur mesure (couleurs, style…)</li>
+            <li>Formulaire de contact + lien WhatsApp</li>
+            <li>Optimisation mobile + SEO de base</li>
+            <li>Intégration réseaux sociaux</li>
+            <li>Conseils pour nom de domaine et hébergement</li>
+          </ul>
+          <div class="offer-desc">✅ Recommandée pour les indépendants, commerçants ou freelances.</div>
+        </div>
+        <div class="offer-card premium">
+          <div class="offer-badge">🟣 PREMIUM</div>
+          <div class="offer-price">890&nbsp;€</div>
+          <ul class="offer-list">
+            <li>Site complet jusqu’à 8 pages</li>
+            <li>Maquette Figma avant développement</li>
+            <li>Référencement local avancé (Google My Business)</li>
+            <li>Installation + configuration d’un CMS (WordPress ou autre)</li>
+            <li>Formation 1h : apprendre à modifier son site</li>
+            <li>1 mois de maintenance offerte</li>
+            <li>Email pro inclus (ex : contact@votresite.fr)</li>
+          </ul>
+          <div class="offer-desc">🔥 Pour ceux qui veulent une image pro + contrôle total du site.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="options-section">
+      <h3>🧩 Options supplémentaires</h3>
+      <ul class="options-list">
+        <li>Maintenance mensuelle (mise à jour, bug, contenu) : <strong>à partir de 25€/mois</strong></li>
+        <li>Boutique e-commerce simple (WooCommerce) : <strong>+300&nbsp;€</strong></li>
+        <li>Traduction site bilingue : <strong>+150&nbsp;€</strong></li>
+        <li>Création logo : <strong>+60&nbsp;€</strong></li>
+        <li>Rédaction textes optimisés SEO : <strong>sur devis</strong></li>
+      </ul>
+    </section>
+
+    <section class="inclus-section">
+      <h3>🧾 Inclus dans toutes les offres</h3>
+      <ul class="inclus-list">
+        <li>Facture</li>
+        <li>Délai et devis clairs</li>
+        <li>Contact client simplifié (WhatsApp, mail, Discord si besoin)</li>
+        <li>Suivi post-livraison</li>
+      </ul>
+    </section>
+
     <section class="about" id="about">
       <h2>À propos d'Orbyte</h2>
       <p>
