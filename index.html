@@ -233,7 +233,7 @@
       align-items: flex-start;
       border-top: 6px solid var(--accent);
       position: relative;
-      transition: transform 0.18s, box-shadow 0.18s;
+      transition: box-shadow 0.18s, transform 0.18s;
     }
     .offer-card.essentiel {
       border-top-color: var(--essentiel);
@@ -276,8 +276,9 @@
       transition: box-shadow 0.18s, transform 0.18s;
     }
     .offer-card:hover {
-      box-shadow: 0 12px 32px #4ea8de22, 0 0 0 4px #4ea8de22;
-      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 16px 40px #4ea8de33, 0 0 0 4px #4ea8de22;
+      transform: scale(1.06);
+      z-index: 2;
     }
     .options-section {
       max-width: 700px;
