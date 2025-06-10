@@ -606,7 +606,8 @@
     &copy; 2025 Orbyte. Tous droits réservés.
   </footer>
   <div id="offer-modal-bg" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100vw;height:100vh;background:rgba(34,34,59,0.75);align-items:center;justify-content:center;">
-    <div id="offer-modal-content" style="background:#fff;border-radius:18px;box-shadow:0 8px 40px #22223b55;max-width:95vw;max-height:90vh;overflow:auto;padding:36px 28px;min-width:260px;min-height:180px;transform:scale(1.08);"></div>
+    <!-- On ne met plus de style ici, juste un conteneur -->
+    <div id="offer-modal-content"></div>
   </div>
   <script>
   // Création d'un canvas pour l'effet "0 et 1 qui défilent"
@@ -661,12 +662,16 @@
     card.style.cursor = "pointer";
     card.addEventListener('click', function(e) {
       e.stopPropagation();
-      // Clone le contenu de la carte
       const modal = document.getElementById('offer-modal-content');
-      modal.innerHTML = card.innerHTML;
+      // Clone le noeud DOM complet pour garder les classes/styles
+      modal.innerHTML = "";
+      const clone = card.cloneNode(true);
+      clone.style.transform = "scale(1.18)";
+      clone.style.boxShadow = "0 16px 60px #22223b55, 0 0 0 6px #4ea8de22";
+      clone.style.zIndex = "1001";
+      clone.style.transition = "transform 0.25s cubic-bezier(.4,2,.3,1), box-shadow 0.25s";
+      modal.appendChild(clone);
       document.getElementById('offer-modal-bg').style.display = 'flex';
-      // Ajoute la couleur de fond selon l'offre
-      modal.className = card.className;
     });
   });
   // Ferme le modal si on clique dans le vide
