@@ -237,15 +237,18 @@
     }
     .offer-card.essentiel {
       border-top-color: var(--essentiel);
-      background: linear-gradient(135deg, #eafaf4 60%, #f7f9fb 100%);
+      background: linear-gradient(135deg, #eafaf4 0%, #c6f7e2 100%);
+      box-shadow: 0 4px 24px #3ecf8e22;
     }
     .offer-card.pro {
       border-top-color: var(--pro);
-      background: linear-gradient(135deg, #eaf0fb 60%, #f7f9fb 100%);
+      background: linear-gradient(135deg, #eaf0fb 0%, #b3d4fc 100%);
+      box-shadow: 0 4px 24px #3e7bfc22;
     }
     .offer-card.premium {
       border-top-color: var(--premium);
-      background: linear-gradient(135deg, #f3eafd 60%, #f7f9fb 100%);
+      background: linear-gradient(135deg, #f3eafd 0%, #e6d1fa 100%);
+      box-shadow: 0 4px 24px #a259e622;
     }
     .offer-badge {
       /* badge déjà coloré par type d'offre */
@@ -260,10 +263,11 @@
       position: absolute;
       top: -22px;
       left: 24px;
+      border: 2px solid #fff;
     }
-    .offer-card.essentiel .offer-badge { background: var(--essentiel);}
-    .offer-card.pro .offer-badge { background: var(--pro);}
-    .offer-card.premium .offer-badge { background: var(--premium);}
+    .offer-card.essentiel .offer-badge { background: linear-gradient(90deg, #3ecf8e 60%, #2eb872 100%);}
+    .offer-card.pro .offer-badge { background: linear-gradient(90deg, #3e7bfc 60%, #1e4bb8 100%);}
+    .offer-card.premium .offer-badge { background: linear-gradient(90deg, #a259e6 60%, #7d3bb8 100%);}
     .offer-price {
       font-size: 2em;
       font-weight: 700;
