@@ -235,10 +235,21 @@
       position: relative;
       transition: transform 0.18s, box-shadow 0.18s;
     }
-    .offer-card.essentiel { border-top-color: var(--essentiel);}
-    .offer-card.pro { border-top-color: var(--pro);}
-    .offer-card.premium { border-top-color: var(--premium);}
+    .offer-card.essentiel {
+      border-top-color: var(--essentiel);
+      background: linear-gradient(135deg, #eafaf4 60%, #f7f9fb 100%);
+    }
+    .offer-card.pro {
+      border-top-color: var(--pro);
+      background: linear-gradient(135deg, #eaf0fb 60%, #f7f9fb 100%);
+    }
+    .offer-card.premium {
+      border-top-color: var(--premium);
+      background: linear-gradient(135deg, #f3eafd 60%, #f7f9fb 100%);
+    }
     .offer-badge {
+      /* badge déjà coloré par type d'offre */
+      box-shadow: 0 2px 8px #0001;
       font-size: 1.1em;
       font-weight: 600;
       border-radius: 6px;
@@ -249,7 +260,6 @@
       position: absolute;
       top: -22px;
       left: 24px;
-      box-shadow: 0 2px 8px #0001;
     }
     .offer-card.essentiel .offer-badge { background: var(--essentiel);}
     .offer-card.pro .offer-badge { background: var(--pro);}
@@ -259,21 +269,15 @@
       font-weight: 700;
       margin-bottom: 12px;
       margin-top: 8px;
+      color: #22223b;
     }
-    .offer-list {
-      padding-left: 18px;
-      margin-bottom: 18px;
-      color: #444;
-      font-size: 1.08em;
+    .offer-card {
+      /* Ajout d'une légère bordure colorée et d'un effet au survol */
+      transition: box-shadow 0.18s, transform 0.18s;
     }
-    .offer-desc {
-      font-size: 0.98em;
-      color: #666;
-      margin-bottom: 10px;
-      margin-top: 0;
-    }
-    .offer-card strong {
-      color: var(--primary);
+    .offer-card:hover {
+      box-shadow: 0 12px 32px #4ea8de22, 0 0 0 4px #4ea8de22;
+      transform: translateY(-6px) scale(1.03);
     }
     .options-section {
       max-width: 700px;
